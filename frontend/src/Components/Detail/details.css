@@ -85,6 +85,7 @@
     height: 180px;
     margin: auto;
     display: block;
+    width: 80%
 }
 .Detail .userInfo {
     font-size: 12px;

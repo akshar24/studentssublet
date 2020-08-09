@@ -53,7 +53,7 @@ class Detail extends Component {
                 <div className = "return">Return To Search <img style = {{marginTop: "-3px"}}src = {right} alt = "return"/></div>
                 </Link>
                 <div className = "row">
-                    <div className = "col-8 detailInfo d-flex">
+                    <div className = "col-7 detailInfo d-flex">
                         <div className = "postInfo">
                             <span> {this.state.data.title} </span>
                             <p> {this.state.data.description}</p>
@@ -73,7 +73,7 @@ class Detail extends Component {
                        
 
                     </div>
-                    <div className = "col-3 photos ml-auto">
+                    <div className = "col-4 photos ml-auto">
                         <span>View Photos</span>
                         <img className = "detailImage img-fluid" src = {
                             ((this.state.data.images || []).length > 0) ? this.state.data.images[0]: noImage
