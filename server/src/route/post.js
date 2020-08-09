@@ -45,7 +45,7 @@ module.exports = function(app,mongoose){
 
     app.get("/post/:id", (req, res) => {
         let _id = req.params.id;
-        _id = _id.substring(0,_id.length-1);
+        //_id = _id.substring(0,_id.length-1);
         try {
             postModel
             .findById(_id)

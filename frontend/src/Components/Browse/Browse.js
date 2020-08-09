@@ -8,8 +8,8 @@ import radio1 from "../../assets/radio1.svg"
 import search from "../../assets/search.svg"
 import {endpoints} from "../../endpoints";
 import {BackEndCommunicatorHelper} from "../../backendCommunicator"
-import noImage from "../../assets/noImage.png"
-
+import noImage from "../../assets/noImage.png";
+import {Link} from "react-router-dom";
 
 
 class Browse extends Component {
@@ -131,7 +131,8 @@ class Browse extends Component {
                                 {
                                     this.state.posts.map((post, index) => {
                                         return ( 
-                                            <div className = "postContainer d-flex" onClick={()=>{return window.location.href = `/detail/${post._id}}`}}>
+                                            <Link to = {`/detail/${post._id}`} >
+                                            <div className = "postContainer d-flex">
                                                 <div>
                                                     <img className = "postImage" src  = {
                                                          post.images.length > 0 ? post.images[0]: noImage
@@ -151,6 +152,7 @@ class Browse extends Component {
                                                 </div>
                                             
                                             </div>
+                                            </Link>
                                         )
                                     })
                                 }
