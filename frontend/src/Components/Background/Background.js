@@ -9,7 +9,7 @@ const Background = (props) => {
     
     return (
         <div className = "Background d-flex">
-            <div className = "container-fluid background-container" styles = {styles} style ={{padding:"50px"}}>
+            <div className = "container-fluid background-container" styles = {styles}>
                     {props.children}
             </div>  
 

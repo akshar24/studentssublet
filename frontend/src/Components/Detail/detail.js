@@ -81,7 +81,7 @@ class Detail extends Component {
                         <div className = "d-flex justify-content-center" style = {{marginTop: '10px'}}>
                             {
                                 (this.state.data.images || []).map((image, index) => {
-                                    return <img style  = {{marginRight: '5px'}}src = {
+                                    return <img key = {index} style  = {{marginRight: '5px'}}src = {
                                         (index === 0)? radio1: radio
                                     } 
                                     alt = "select"
@@ -100,6 +100,14 @@ class Detail extends Component {
                             <button className = "ml-auto comment-button">
                                 Add Comment
                             </button>
+
+                        </div>
+                        <div style = {{marginTop: '12px'}}>
+                            {
+                                (this.state.data.comments || []).map(comment => {
+                                    return <p key = {comment}>{comment}</p>
+                                })
+                            }
 
                         </div>
                     </div>

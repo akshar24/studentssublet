@@ -7,10 +7,6 @@ import Detail from './Components/Detail/detail';
 
 import PostListing from './Components/PostListing/postListing'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 
 
 function App() {
@@ -24,7 +20,7 @@ function App() {
             <Route path = "/post" exact component = {PostListing}></Route>
             <Route path = "/browse" exact component = {Browse} /> 
             <Route path = "/addPost" exact component = {PostListing}></Route>
-            <Route path = "/detail/:_id" exact component = {Detail}></Route>
+            <Route path = "/detail/:id" exact component = {Detail}></Route>
 
           </Switch>
 
