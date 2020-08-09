@@ -11,11 +11,7 @@ const postSchema = mongoose.Schema({
         trim: true,
         required: true
     },
-    images: [{
-        image: {
-            type: Buffer
-        }
-    }],
+    images: [],
     address: {
         type: String,
         required:true

@@ -1,7 +1,10 @@
 const postModel = require("../models/post.js");
+const commentModel = require("../models/comment");
 
 module.exports = function(app,mongoose){
     app.post("/api/post",function(req,res){
+        console.log("HERE");
+        console.log(req.body);
         postModel.create({
             title:req.body.title,
             description:req.body.description,
@@ -11,8 +14,14 @@ module.exports = function(app,mongoose){
             userID: req.body.userID
         },function(err,data){
             if(err){
+                console.log(err);
                 res.status(422);
             }else{
+                commentModel.create({
+                    userID: req.body.userID,
+                    commentText:[],
+                    projectID:data._id
+                })
                 res.status(200).send({success:true});
             }
         });
