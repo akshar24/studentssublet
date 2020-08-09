@@ -21,6 +21,11 @@ class Browse extends Component {
         super(props)
         this.filters = ["Summer", "Rice University", "Houston, TX"]
     }
+
+    clickHandler(){
+        
+    }
+
    async componentDidMount(){
         const request = this.backend.openRequest({
             useBase: false,
@@ -126,7 +131,7 @@ class Browse extends Component {
                                 {
                                     this.state.posts.map((post, index) => {
                                         return ( 
-                                            <div className = "postContainer d-flex">
+                                            <div className = "postContainer d-flex" onClick={()=>{return window.location.href = `/detail/${post._id}}`}}>
                                                 <div>
                                                     <img className = "postImage" src  = {
                                                          post.images.length > 0 ? post.images[0]: noImage
