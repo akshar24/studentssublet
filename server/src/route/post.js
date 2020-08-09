@@ -44,14 +44,16 @@ module.exports = function(app,mongoose){
     });
 
     app.get("/post/:id", (req, res) => {
-        const _id = req.params.id;
+        let _id = req.params.id;
+        _id = _id.substring(0,_id.length-1);
         try {
             postModel
-            .findOne({_id})
-            .populate("userID", { path: "comments", options: {sort: {'updatedAt': -1}}})
-            .then((data) => res.send(post))
+            .findById(_id)
+            //.populate("userID", { path: "comments", options: {sort: {'updatedAt': -1}}})
+            .then((data) => res.send(data))
             
         } catch (err) {
+            console.log(err);
             res.status(500).send(err);
         }
     })
