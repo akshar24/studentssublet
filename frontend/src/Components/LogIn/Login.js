@@ -9,25 +9,38 @@ import {endpoints} from "../../endpoints";
 import {BackEndCommunicatorHelper} from "../../backendCommunicator"
 
 class Login extends Component {
+    constructor(props) {
+        super(props)
+        this.email = React.createRef()
+        this.password = React.createRef()
+    }
     backend = new BackEndCommunicatorHelper(null)
     login = async () => {
         const request = this.backend.openRequest({
             useBase: false,
             url: endpoints.login,
             method: BackEndCommunicatorHelper.POST,
-            body: this.form
+            body: {
+                email: this.email.current.value,
+                password: this.password.current.value
+            }
         })
-        console.log(request, request.body)
-        //const response = await request.send()
+        await request.send()
+        .then(response => {
+            this.email.current.value = ""
+            this.password.current.value = ""
+            localStorage.setItem("user", JSON.stringify(response.data))
+            this.props.history.push('/browse')
+        }).catch(reason => alert(reason.response.data.message))
+        
+       
+       
     }
-    form =  {
-        email: "",
-        password: ""
-    }
+  
     render() {
         return (
             <div className = "Login">
-                <Navigation />
+                <Navigation  />
                 <Background>
                     <div className = "row justify-content-between">
                         <AuthInfo authType = "login"/>
@@ -43,7 +56,7 @@ class Login extends Component {
                                             Email
                                         </label>  
                                             
-                                         <input onChange = {(event) => fillInputOnChange(this.form, "email", event)} type = "email" className = "form-field" id = "email" name = "email" />
+                                         <input ref = {this.email} type = "email" className = "form-field" id = "email" name = "email" />
                                         
                                     </div>
                                     <div className = "form-group last" >
@@ -51,7 +64,7 @@ class Login extends Component {
                                             Password
                                         </label> 
                                             
-                                         <input onChange = {(event) => fillInputOnChange(this.form, "password", event)} className = "form-field"  type = "password" id = "password" name = "password" />
+                                         <input ref = {this.password} className = "form-field"  type = "password" id = "password" name = "password" />
                                         
                                     </div>
                                     <Link to = {"/signup"}>
