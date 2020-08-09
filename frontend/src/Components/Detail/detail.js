@@ -8,7 +8,7 @@ import {fillInputOnChange} from "../../utils"
 import {endpoints} from "../../endpoints";
 import {BackEndCommunicatorHelper} from "../../backendCommunicator"
 import {Form} from 'react-bootstrap'
-class PostListing extends Component {
+class Detail extends Component {
     
     constructor(props){
         super(props);
@@ -47,4 +47,4 @@ class PostListing extends Component {
         )
     }
 }
-export default PostListing;
+export default Detail;
