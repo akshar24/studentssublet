@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose  = require("mongoose");
 
 const commentSchema = mongoose.Schema({
   userID: {
@@ -6,10 +6,7 @@ const commentSchema = mongoose.Schema({
     required: true,
     ref: 'User'
   },
-  commentText: {
-    type: String,
-    trim: true,
-  },
+  commentText: [],
   projectID: {
     type: String,
   },
