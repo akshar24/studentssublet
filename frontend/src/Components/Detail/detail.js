@@ -12,10 +12,12 @@ import radio from "../../assets/radio.svg"
 import radio1 from "../../assets/radio1.svg"
 import right from "../../assets/right.svg"
 class Detail extends Component {
+  
     backend = new BackEndCommunicatorHelper(null)
     state = {
         data: {}
     }
+
     constructor(props){
 
         super(props);
