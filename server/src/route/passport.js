@@ -3,7 +3,8 @@ const jwt = require("jsonwebtoken");
 
 
 module.exports = function (app, mongoose) {
-    app.post("/register", function (req, res) { // ROUTING FOR REGISTERATION
+    app.post("/register", function (req, res) {
+        console.log(req.body);// ROUTING FOR REGISTERATION
         passport.authenticate("register", { session: false }, function (err, user) {
             if (err) {
                 console.log(err);

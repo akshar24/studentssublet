@@ -21,7 +21,7 @@ const postSchema = mongoose.Schema({
         required:True
     },
     price: {
-        typw: Number
+        type: Number
     },
     comments: [{
         comment: {
@@ -42,4 +42,4 @@ const postSchema = mongoose.Schema({
 
 const Post = mongoose.model('Post', postSchema)
 
-export default Post;
+module.exports = Post;

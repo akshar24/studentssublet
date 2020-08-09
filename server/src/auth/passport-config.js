@@ -13,15 +13,17 @@ module.exports = function (app, mongoose) {
         passwordField: "password",
         passReqToCallback: true
     }, function (req,email, password, done) {
+        console.log("HEY"); // ROUTING FOR REGISTERATION
         UserModel.findOne({ email: email },
             function (err, account) {
+                console.log("HEY!");
                 if (err) { // if error, done(err)
                     done(err);
                 } else { // If no error, check if the email already exists in the database or not.
                     if (account !== null) { //User already exists
                         console.log("User with the email already exists");
                         //HAVE TO RETURN A JSON FILE THAT SAYS ERROR
-                        return done(null, false);
+                        return done(null, false,);
                     } else { // User does not exist
                         bcrypt.hash(password, 12, function (err, hashed) { //HASH
                             if (err) {
