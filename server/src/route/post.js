@@ -8,7 +8,7 @@ module.exports = function(app,mongoose){
             images: req.body.images,
             address: req.body.address,
             price: req.body.price,
-            userID: userID
+            userID: req.body.userID
         },function(err,data){
             if(err){
                 res.status(422);
@@ -18,27 +18,30 @@ module.exports = function(app,mongoose){
         });
     });
 
-    app.get('/', (req, res) => {
+    app.get("/", (req, res) => {
         console.log("home")
-        try { 
-            let posts = []      
+        try {    
             postModel.
-                find({}).populate('userID')
-                .then((data) => posts = data);
-            console.log("posts", posts);
-            res.send(posts);
+                find({})
+                .populate('userID')
+                .then((data) => {
+                    console.log(data)
+                    res.send(data);
+                });
+            
         } catch(err){
             res.status(500).send(err);
         }
-    })
+    });
 
-    app.get('/post/:id', (req, res) => {
+    app.get("/post/:id", (req, res) => {
         const _id = req.params.id;
         try {
-            let post = {}
-            Task.findOne({_id}).populate("userID", { path: "comments", options: {sort: {'updatedAt': -1}}})
-            .then((data) => post = data)
-            res.send(post)
+            postModel
+            .findOne({_id})
+            .populate("userID", { path: "comments", options: {sort: {'updatedAt': -1}}})
+            .then((data) => res.send(post))
+            
         } catch (err) {
             res.status(500).send(err);
         }

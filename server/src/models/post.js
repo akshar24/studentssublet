@@ -13,12 +13,12 @@ const postSchema = mongoose.Schema({
     },
     images: [{
         image: {
-            type: Blob
+            type: Buffer
         }
     }],
     address: {
         type: String,
-        required:True
+        required:true
     },
     price: {
         type: Number
