@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import Navigation from "../Navigation/Navigation";
-import "./PostListing.css"
 import Background from "../Background/Background";
 import AuthInfo from "../AutoInfo/AuthoInfo";
 import {Link} from "react-router-dom";
@@ -17,12 +16,24 @@ class Detail extends Component {
         }
     }
 
-    componentDidMount(){
-        let _id = this.props.match.params._id;
-        fetch(`http:localhost:9000/post/${_id}`)
-        .then(res=>res.json())
-        .then(this.setState({data: res}));
+    async componentDidMount(){
+        
+        const request = this.backend.openRequest({
+            useBase: false,
+            url: `http://localhost:9000/post/${this.props.match.params._id}`,
+            method: BackEndCommunicatorHelper.GET
+            
+        })
+        await request.send().then(
+            response => {
+                console.log(response.data)
+                this.setState({
+                    data: response.data
+                })
+            }
+        )
     }
+
 
     render() {
         return (
@@ -32,7 +43,7 @@ class Detail extends Component {
                 <div className = "row">
                     <div className = "col">
                         <span className = "header">
-                            Create a new Listing
+                            {this.state.data.title}
                         </span>
                     </div>
                     <div className= "col xicon">
