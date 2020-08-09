@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
-import Navigation from "./Components/Navigation/Navigation"
-import Background from "./Components/Background/Background"
+import Browse from "./Components/Browse/Browse"
 import Login from './Components/LogIn/Login';
 import Signup from './Components/Singup/Signup';
 import PostListing from './Components/PostListing/postListing'
@@ -17,6 +16,7 @@ function App() {
             </Route>
             <Route path = "/signup" exact component = {Signup}></Route>
             <Route path = "/post" exact component = {PostListing}></Route>
+            <Route path = "/browse" exact component = {Browse} /> 
           </Switch>
 
         </Router>

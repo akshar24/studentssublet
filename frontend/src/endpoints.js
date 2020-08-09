@@ -1,7 +1,7 @@
 
 //change url bindings here
 export const endpoints = {
-    login: 'https://reqres.in/api/products/3',
-    signup: null,
-    post: null,
+    login: "http://localhost:9000/login",
+    signup: "http://localhost:9000/register",
+    posts: "http://localhost:9000/"
 }
