@@ -17,13 +17,13 @@ class Signup extends Component {
             body: this.form
         })
         console.log(request, request.body)
-        //const response = await request.send()
+        const response = await request.send()
     }
     form =  {
         email: "",
         password: "",
         username: "",
-        phone: ""
+        phoneNumber: ""
     }
 
     render() {
@@ -52,7 +52,7 @@ class Signup extends Component {
                                             Phone Number
                                         </label> 
                                             
-                                         <input onChange = {(event) => fillInputOnChange(this.form, "phone", event)} className = "form-field"  type = "text" id = "phone" name = "phone" />
+                                         <input onChange = {(event) => fillInputOnChange(this.form, "phoneNumber", event)} className = "form-field"  type = "text" id = "phone" name = "phone" />
                                         
                                     </div>
                                     <div className = "form-group">
