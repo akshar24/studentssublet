@@ -10,7 +10,7 @@ class Navigation extends Component {
 
         return (
             <nav className = "navbar navbar-expand-md navbar-light Navigation">
-                <span className = "navbar-brand" > Student Sublets </span>
+                <span className = "navbar-brand" ><img style = {{width:"30px", verticalAlign:"top", marginTop:"3px",marginRight:"4px"}}src = "/logo.png"/> Student Sublets </span>
                 {this.getSideButtons()}
              
             </nav>
