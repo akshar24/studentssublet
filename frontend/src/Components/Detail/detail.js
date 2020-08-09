@@ -9,6 +9,8 @@ import {BackEndCommunicatorHelper} from "../../backendCommunicator"
 import {Form} from 'react-bootstrap'
 class Detail extends Component {
     
+    backend = new BackEndCommunicatorHelper(null)
+
     constructor(props){
         super(props);
         this.state = {
