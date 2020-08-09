@@ -1,0 +1,16 @@
+.Navigation {
+    background-color: #222F9C;
+    font-family: Zilla Slab;
+
+}
+
+.Navigation .navbar-brand {
+    font-weight: 500;
+    font-size: 30px;
+   
+    color: #ffffff;
+    font-style: normal;
+}
+.Navigation .navbar-brand:hover {
+    color: white
+}
