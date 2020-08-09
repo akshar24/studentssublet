@@ -34,6 +34,7 @@ class Signup extends Component {
                             this.password.current.value = ""
                             this.username.current.value = ""
                             this.phone.current.value = ""
+                            this.props.history.push('/login')
                     })
                     .catch(reason => alert(reason.response.data.message))
                     

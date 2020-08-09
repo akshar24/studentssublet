@@ -30,6 +30,7 @@ class Login extends Component {
             this.email.current.value = ""
             this.password.current.value = ""
             localStorage.setItem("user", JSON.stringify(response.data))
+            this.props.history.push('/browse')
         }).catch(reason => alert(reason.response.data.message))
         
        
