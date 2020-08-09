@@ -32,7 +32,8 @@ module.exports = function (app, mongoose) {
                                 UserModel.create({ //CREATE
                                     username: req.body.username,
                                     email: email,
-                                    password: hashed
+                                    password: hashed,
+                                    phoneNumber: req.body.phone
                                 }).then(user => {
                                     console.log("Created User");
                                     return (done(null, user));
