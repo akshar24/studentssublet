@@ -4,27 +4,43 @@ import Navigation from "../Navigation/Navigation";
 import Background from "../Background/Background";
 import AuthInfo from "../AutoInfo/AuthoInfo";
 import {Link} from "react-router-dom";
-import {fillInputOnChange} from "../../utils"
 import {endpoints} from "../../endpoints";
 import {BackEndCommunicatorHelper} from "../../backendCommunicator"
 class Signup extends Component {
+    constructor(props) {
+        super(props)
+        this.email = React.createRef()
+        this.password = React.createRef()
+        this.username = React.createRef()
+        this.phone = React.createRef()
+        
+    }
     backend = new BackEndCommunicatorHelper(null)
     signup = async () => {
         const request = this.backend.openRequest({
             useBase: false,
             url: endpoints.signup,
             method: BackEndCommunicatorHelper.POST,
-            body: this.form
+            body: {
+                username: this.username.current.value,
+                password: this.password.current.value,
+                email: this.email.current.value,
+                phone: this.phone.current.value
+            }
         })
-        console.log(request, request.body)
-        //const response = await request.send()
+        await request.send()
+                    .then(response => {
+                            this.email.current.value = ""
+                            this.password.current.value = ""
+                            this.username.current.value = ""
+                            this.phone.current.value = ""
+                    })
+                    .catch(reason => alert(reason.response.data.message))
+                    
+        
     }
-    form =  {
-        email: "",
-        password: "",
-        username: "",
-        phone: ""
-    }
+  
+    
 
     render() {
         return (
@@ -44,7 +60,7 @@ class Signup extends Component {
                                             Full Name
                                         </label> 
                                             
-                                         <input onChange = {(event) => fillInputOnChange(this.form, "username", event)} type = "text" className = "form-field" id = "fullname" name = "username" />
+                                         <input  ref = {this.username} type = "text" className = "form-field" id = "fullname" name = "username" />
                                         
                                     </div>
                                     <div className = "form-group" >
@@ -52,7 +68,7 @@ class Signup extends Component {
                                             Phone Number
                                         </label> 
                                             
-                                         <input onChange = {(event) => fillInputOnChange(this.form, "phone", event)} className = "form-field"  type = "text" id = "phone" name = "phone" />
+                                         <input ref = {this.phone} className = "form-field"  type = "text" id = "phone" name = "phone" />
                                         
                                     </div>
                                     <div className = "form-group">
@@ -60,7 +76,7 @@ class Signup extends Component {
                                             Email
                                         </label> 
                                             
-                                         <input onChange = {(event) => fillInputOnChange(this.form, "email", event)}  type = "email" className = "form-field" id = "email" name = "email" />
+                                         <input ref = {this.email}  type = "email" className = "form-field" id = "email" name = "email" />
                                         
                                     </div>
                                     <div className = "form-group last" >
@@ -68,7 +84,7 @@ class Signup extends Component {
                                             Password
                                         </label> 
                                             
-                                         <input onChange = {(event) => fillInputOnChange(this.form, "password", event)} className = "form-field"  type = "password" id = "password" name = "password" />
+                                         <input ref = {this.password} className = "form-field"  type = "password" id = "password" name = "password" />
                                         
                                     </div>
                                     <Link to = {"/"}>

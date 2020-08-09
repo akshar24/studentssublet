@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
-import Navigation from "./Components/Navigation/Navigation"
-import Background from "./Components/Background/Background"
+
 import Login from './Components/LogIn/Login';
 import Signup from './Components/Singup/Signup';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
