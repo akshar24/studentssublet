@@ -55,7 +55,7 @@ class PostListing extends Component {
         return (
         <div  className = "PostListing">
             <Navigation />
-            <Background>
+            <Background >
                 <div className = "row">
                     <div className = "col">
                         <span className = "header">
