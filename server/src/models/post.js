@@ -11,14 +11,10 @@ const postSchema = mongoose.Schema({
         trim: true,
         required: true
     },
-    images: [{
-        image: {
-            type: Blob
-        }
-    }],
+    images: [],
     address: {
         type: String,
-        required:True
+        required:true
     },
     price: {
         type: Number
