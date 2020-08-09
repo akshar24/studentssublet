@@ -19,6 +19,7 @@ const postSchema = mongoose.Schema({
     price: {
         type: Number
     },
+    terms:[],
     comments: [{
         comment: {
             type: mongoose.Schema.Types.ObjectId,

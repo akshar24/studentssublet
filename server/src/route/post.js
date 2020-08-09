@@ -10,6 +10,7 @@ module.exports = function(app,mongoose){
             description:req.body.description,
             images: req.body.images,
             address: req.body.address,
+            terms: req.body.terms,
             price: req.body.price,
             userID: req.body.userID
         },function(err,data){
