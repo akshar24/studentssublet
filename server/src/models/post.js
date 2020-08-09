@@ -20,13 +20,7 @@ const postSchema = mongoose.Schema({
         type: Number
     },
     terms:[],
-    comments: [{
-        comment: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Comment'
-        }
-    }],
-
+    comments: [],
     userID: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
