@@ -49,7 +49,7 @@ module.exports = function(app,mongoose){
         try {
             postModel
             .findById(_id)
-            //.populate("userID", { path: "comments", options: {sort: {'updatedAt': -1}}})
+            .populate("userID")
             .then((data) => res.send(data))
             
         } catch (err) {

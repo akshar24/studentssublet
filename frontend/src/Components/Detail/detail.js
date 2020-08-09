@@ -10,6 +10,7 @@ import "./details.css"
 import noImage from "../../assets/noImage.png";
 import radio from "../../assets/radio.svg"
 import radio1 from "../../assets/radio1.svg"
+import right from "../../assets/right.svg"
 class Detail extends Component {
     backend = new BackEndCommunicatorHelper(null)
     state = {
@@ -46,6 +47,9 @@ class Detail extends Component {
         <div  className = "Detail">
             <Navigation />
             <div className = "container wrapper">
+                <Link to = "/browse">
+                <div className = "return">Return To Search <img style = {{marginTop: "-3px"}}src = {right} alt = "return"/></div>
+                </Link>
                 <div className = "row">
                     <div className = "col-8 detailInfo d-flex">
                         <div className = "postInfo">
@@ -57,7 +61,12 @@ class Detail extends Component {
                              <span className = "extensionheader">Target Price: ${this.state.data.price}/mo</span>
                              <span className = "comments">{(this.state.data.comments || []).length} comments</span>
                             <span className = "extensionHeader">Address</span>
-                            <span className = "address">{this.state.data.address}</span>                    
+                            <span className = "address">{this.state.data.address}</span>  
+                            <span className = "extensionHeader">Contact</span>
+                            <span className = "userInfo">{(this.state.data.userID || {}).username}</span>  
+                            <span className = "userInfo">{(this.state.data.userID || {}).email}</span>  
+
+                                               
                         </div>
                        
 
@@ -66,9 +75,32 @@ class Detail extends Component {
                         <span>View Photos</span>
                         <img className = "detailImage img-fluid" src = {
                             ((this.state.data.images || []).length > 0) ? this.state.data.images[0]: noImage
-                        } />
+                        }  alt = "entity" />
+                        <div className = "d-flex justify-content-center" style = {{marginTop: '10px'}}>
+                            {
+                                (this.state.data.images || []).map((image, index) => {
+                                    return <img style  = {{marginRight: '5px'}}src = {
+                                        (index === 0)? radio1: radio
+                                    } 
+                                    alt = "select"
+                                    />
+                                })
+                            }
+                        </div>
+
                     </div>
 
+                </div>
+                <div className = "row commentsSec">
+                    <div className = "col">
+                        <div className = "d-flex">
+                            <div className = "comment-title">Comments</div>
+                            <button className = "ml-auto comment-button">
+                                Add Comment
+                            </button>
+
+                        </div>
+                    </div>
                 </div>
 
             </div>
