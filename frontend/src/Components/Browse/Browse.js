@@ -19,7 +19,7 @@ class Browse extends Component {
     }
     constructor(props) {
         super(props)
-        this.filters = ["Summer", "Rice University", "Houston, TX"]
+        this.filters = ["Summer", "UW Madison", "Madison, WI"]
     }
 
     clickHandler(){
@@ -102,7 +102,7 @@ class Browse extends Component {
                                       </span> 
                                       <div className = "subsection">
                                           <div className = "filterDropdown d-flex">
-                                              <span>Rice University</span>
+                                              <span>UW Madison</span>
                                               <img src = {search} alt = "search" className = "ml-auto" />
 
                                           </div>
@@ -115,7 +115,7 @@ class Browse extends Component {
                                       </span> 
                                       <div className = "subsection">
                                           <div className = "filterDropdown d-flex">
-                                              <span>Houston, TX</span>
+                                              <span>Madison, WI</span>
                                               <img src = {search} alt = "search" className = "ml-auto" />
 
                                           </div>
