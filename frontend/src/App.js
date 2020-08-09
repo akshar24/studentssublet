@@ -3,6 +3,7 @@ import './App.css';
 import Browse from "./Components/Browse/Browse"
 import Login from './Components/LogIn/Login';
 import Signup from './Components/Singup/Signup';
+import PostListing from './Components/PostListing/postListing'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 
@@ -14,7 +15,8 @@ function App() {
             <Route path = "/" exact component =  {Login}>
             </Route>
             <Route path = "/signup" exact component = {Signup}></Route>
-            <Route path = "/browse" exact component = {Browse} /> \
+            <Route path = "/post" exact component = {PostListing}></Route>
+            <Route path = "/browse" exact component = {Browse} /> 
           </Switch>
 
         </Router>
