@@ -5,7 +5,6 @@ import Login from './Components/LogIn/Login';
 import Signup from './Components/Singup/Signup';
 import PostListing from './Components/PostListing/postListing'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import Detail from "./Components/Detail/detail.js";
 
 
 function App() {
@@ -18,7 +17,7 @@ function App() {
             <Route path = "/signup" exact component = {Signup}></Route>
             <Route path = "/post" exact component = {PostListing}></Route>
             <Route path = "/browse" exact component = {Browse} /> 
-            <Route path = "/detail/:_id" exact component = {Detail} /> 
+            <Route path = "/addPost" exact component = {PostListing}></Route>
 
           </Switch>
 
