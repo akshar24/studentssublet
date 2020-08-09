@@ -25,7 +25,7 @@ class Signup extends Component {
                 username: this.username.current.value,
                 password: this.password.current.value,
                 email: this.email.current.value,
-                phone: this.phone.current.value
+                phoneNumber: this.phone.current.value
             }
         })
         await request.send()
