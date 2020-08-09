@@ -11,10 +11,12 @@ import noImage from "../../assets/noImage.png";
 import radio from "../../assets/radio.svg"
 import radio1 from "../../assets/radio1.svg"
 class Detail extends Component {
+  
     backend = new BackEndCommunicatorHelper(null)
     state = {
         data: {}
     }
+
     constructor(props){
 
         super(props);
